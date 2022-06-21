@@ -32,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Nothing interesting happens", Toast.LENGTH_LONG).show();
 
+        TCPClient client = new TCPClient();
+        try {
+            Toast.makeText(this, client.getGameState(), Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         Socket server = null;
         BufferedReader input = null;
         try {
