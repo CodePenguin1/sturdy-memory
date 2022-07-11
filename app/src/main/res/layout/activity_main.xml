@@ -23,9 +23,19 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="Boop"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20px"
         tools:layout_editor_absoluteY="295dp" />
+
+    <ImageView
+        android:id="@+id/huntMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#756161"
+        android:src="@drawable/lawson_delta_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
     <!--androidx.constraintlayout.widget.ConstraintLayout-->
