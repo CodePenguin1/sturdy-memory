@@ -24,8 +24,12 @@ public class TCPClient {
     private String gameState = "";
 
     /**
-     * Multithreading class to execute all of our client-server communications
+     * Multithreading class to execute all of our client-server communications.
      *
+     * This is called by TCPClient to spawn a new thread in which we perform
+     * the client-server communication. When its work is completed, it will
+     * exit after saving any information received from the server to
+     * instance fields in TCPClient.
      */
     private class TCPMultiThreading extends Thread {
         // Operation to be performed in this instance of TCPMultiThreading
