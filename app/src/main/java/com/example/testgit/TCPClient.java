@@ -57,6 +57,7 @@ public class TCPClient {
 
         /**
          * Wrapper for closing the server socket
+         * @param sock: Socket object for the server to which we want to close our connection
          */
         private void closeSocket(Socket sock) {
             try {
