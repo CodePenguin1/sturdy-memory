@@ -24,7 +24,8 @@
         android:onClick="onClick"
         android:text="Boop"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="20px"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="20dp"
         tools:layout_editor_absoluteY="295dp" />
 
     <ImageView
@@ -32,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#756161"
-        android:src="@drawable/lawson_delta_small"
+        android:src="@drawable/lawson_delta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
          />
