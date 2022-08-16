@@ -40,11 +40,6 @@ public class MainActivity extends AppCompatActivity {
      * Search to get the above to show up properly in dialogue box
      */
 
-
-    //FOR NEXT TIME
-    //SET MAX AND MIN VALUES FOR SCROLLING MOVEMENT
-    //IDENTIFY THE UNITS OF MOVEMENT THE CODE IS USING
-
     public void createMap() {
 
 
@@ -55,9 +50,6 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View arg0, MotionEvent event) {
 
                 int curX, curY;
-                //Log.i();
-                //int maxX = 0;
-                //int minY = 0;
 
                 //These are original x and y coordinates
 
@@ -68,15 +60,8 @@ public class MainActivity extends AppCompatActivity {
                         downY = (int) event.getY();
                         Log.d(LOG_TAG, String.format("ad: downY == %x", downY));
                         Log.d(LOG_TAG, String.format("ad: downX == %x", downX));
-
-
                         //x and y cords initialized
 
-
-                        //switcherView.setMaxHeight(100);
-                        //switcherView.setMaxWidth(100);
-
-                        //Set max cords
 
                         break;
                     case MotionEvent.ACTION_MOVE:
@@ -85,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
                         switcherView.scrollBy( (downX - curX), (downY - curY));
                         //scrollBy -
-                        downX = (int) curX;
-                        downY = (int) curY;
+                        downX = curX;
+                        downY = curY;
                         Log.d(LOG_TAG, String.format("am: downX == %x", downX));
                         Log.d(LOG_TAG, String.format("am: downY == %x", downY));
                        //Scrolling Logs
@@ -96,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                         //ACTION_UP - gets current pos when finger is lifted
                         curX = (int) event.getRawX();
                         curY = (int) event.getRawY();
-                        switcherView.scrollBy((int) (downX - curX), (int) (downY - curY));
+                        switcherView.scrollBy( downX - curX, downY - curY);
                         Log.d(LOG_TAG, String.format("au: downX == %x", downX));
                         Log.d(LOG_TAG, String.format("au: downY == %x", downY));
                         //Final finger position logged
