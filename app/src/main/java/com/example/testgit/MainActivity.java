@@ -17,10 +17,19 @@ import android.widget.TextView;
 import android.util.Log;
 import android.widget.Toast;
 
+
 public class MainActivity extends AppCompatActivity {
+
+    // Log tag
+    private final String LOG_TAG = "Main";
 
     TextView txtRip;
     Button btnBoop;
+
+
+    private int downX = 0;
+    private int downY = 0;
+    //Globally set coordinates for onTouch
 
     @SuppressLint("ClickableViewAccessibility")
 
@@ -30,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
      * @return()
      * Search to get the above to show up properly in dialogue box
      */
+
     public void createMap() {
 
 
@@ -39,31 +49,42 @@ public class MainActivity extends AppCompatActivity {
 
             public boolean onTouch(View arg0, MotionEvent event) {
 
-                float curX, curY;
-                int mx = 0;
-                int my = 0;
+                int curX, curY;
+
                 //These are original x and y coordinates
 
                 switch (event.getAction()) {
 
                     case MotionEvent.ACTION_DOWN:
-                        mx = (int) event.getX();
-                        my = (int) event.getY();
+                        downX = (int) event.getX();
+                        downY = (int) event.getY();
+                        Log.d(LOG_TAG, String.format("ad: downY == %x", downY));
+                        Log.d(LOG_TAG, String.format("ad: downX == %x", downX));
                         //x and y cords initialized
+
+
                         break;
                     case MotionEvent.ACTION_MOVE:
-                        curX = event.getX();
-                        curY = event.getY();
-                        switcherView.scrollBy((int) (mx - curX), (int) (my - curY));
+                        curX = (int) event.getRawX();
+                        curY = (int) event.getRawY();
+
+                        switcherView.scrollBy( (downX - curX), (downY - curY));
                         //scrollBy -
-                        mx = (int) curX;
-                        my = (int) curY;
+                        downX = curX;
+                        downY = curY;
+                        Log.d(LOG_TAG, String.format("am: downX == %x", downX));
+                        Log.d(LOG_TAG, String.format("am: downY == %x", downY));
+                       //Scrolling Logs
+
                         break;
                     case MotionEvent.ACTION_UP:
                         //ACTION_UP - gets current pos when finger is lifted
-                        curX = event.getX();
-                        curY = event.getY();
-                        switcherView.scrollBy((int) (mx - curX), (int) (my - curY));
+                        curX = (int) event.getRawX();
+                        curY = (int) event.getRawY();
+                        switcherView.scrollBy( downX - curX, downY - curY);
+                        Log.d(LOG_TAG, String.format("au: downX == %x", downX));
+                        Log.d(LOG_TAG, String.format("au: downY == %x", downY));
+                        //Final finger position logged
                         break;
                 }
 
